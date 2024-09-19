@@ -32,6 +32,11 @@ done offline.
 After modifying files, build the code and run the unit tests with Ctrl-Shift-P WPILib: Build robot code.
 
 ## Interesting classes
+THe src/main/java/frc/robot/Main class that normally launches the robot has been modified to illustrate
+the different levels of logging.  Playing with src/main/resources/logback.xml's root level, changing
+between ERROR, WARN, INFO, DEBUG, TRACE, demonstrates how messages can be turned on and off that 
+use the LOG Logger, while System.out and System.err cannot be.
+
 In src/main/java/frc/robot/shapes is an interface, Shape.java.  This defines 2 methods any class 
 that is a Shape must implement.  Note that the interface does not say what those methods should do,
 only that they must be present.  Circle.java, Rectangle.java, and Square.java all implement Shape.  
