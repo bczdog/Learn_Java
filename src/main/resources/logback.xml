@@ -5,7 +5,7 @@
    </encoder>
  </appender>
 
- <!--logger name="frc.robot.commands" level="INFO"/-->
+ <logger name="frc.robot.commands" level="INFO"/>
  <!--logger name="frc.robot.subsystems.GamepieceFinder" level="TRACE"/-->
 
 <!-- TRACE logs the finest level of detail, which can be overwhelming.  Best is to control at the class or package level -->
