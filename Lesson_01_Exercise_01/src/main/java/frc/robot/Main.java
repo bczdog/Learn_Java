@@ -4,18 +4,10 @@
 
 package frc.robot;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import edu.wpi.first.wpilibj.RobotBase;
-
 /**
- * Do NOT add any static variables to this class, or any initialization at all. Unless you know what
- * you are doing, do not modify this file except to change the parameter class to the startRobot
- * call.
+ * This is our Main class. 
  */
 public final class Main {
-  private static Logger LOG = LoggerFactory.getLogger(Main.class);
   private Main() {}
 
   /**
@@ -35,54 +27,38 @@ public final class Main {
    */
   public static void main(String... args) {
     // RobotBase.startRobot(Robot::new); -- commenting as we don't actually want to start a Robot program
+    writeMessage("Program starting!");
 
-    // for is one of the most common loops.  Within the (),
-    // it defines a variable (int i, initially set to 0); 
-    // a condition to test that will terminate the loop when false (i < 10);
-    // a statement to run that usually modifies the variable (i++)
-    for (int i = 0; i < 10; i++) {
-      writeMessages();
-    }
+    // EXERCISE 1: main
+    // here are some examples of things you can do with code!
 
-    // To use a while loop, the variable that will terminate the loop must be defined
-    // outside the loop.
-    int count = 0; 
-    while (count < 100) {
-      // if () statements allow you choose what code to run based upon a boolean expression
-      // the mod operator, %, is handy as it allows you to look at the remainder of integer division
-      // In this example, we only call writeMessages() when count / 10 has remainder 0, so, 0, 10, 20, etc.
-      if (count % 10 == 0) {
-        writeMessages();
-      } else {
-        // we could use else if () {, if we needed to test another condition besides providing a default
-        // note that else is optional with if().
-        LOG.trace("main(): while count: {}", count);
-      }
-      // it is important that the variable being tested in the while() expression will trigger a false
-      // to terminate the loop.  Otherwise the code goes runaway.
-      count ++;
-    }
-    // do-while is less common but guarantees the loop will always execute once as the condition for
-    // termination is evaluated at the end of the loop.
-    do {
-      writeMessages();
-      count = count / 10;
-      LOG.trace("main(): do-while count: {}", count);
-    } while (count > 0);
+    // this line creates a variable called "numDogs" and sets it to 0
+    int numDogs = 0;
+    // this line creates a boolean variable (can only be true or false)
+    boolean wantMore = true;
+    String awesomeName = "Barker";
+
+    // both of these lines add 1 to our total of dogs, resulting in 2 more
+    numDogs = numDogs + 1;
+    numDogs++;
+
+    // oops! I didn't think of enough names for 2 dogs, so let's divide that 
+    // number by 2 so we only get one. 
+    numDogs = numDogs / 2;
+
+    // hmm... now that I'm thinking about it, I don't like the name Barker.
+    // Let's change the value of awesomeName to something better.
+    awesomeName = "Byter";
+
+    // this line uses a "method" called writeMessage to print what is in the (). 
+    // we will explore that more later!
+    writeMessage("We will adopt " + numDogs + " dog(s) named " + awesomeName);
   }
-
-  /**
-   * This is method to write a bunch of Hello Worlds to the console.  By playing with the 
-   * src/main/resources/logback.xml, you can control how much of the messages display - important
-   * when you have lots of loops or one loop that may spit a message every 20ms (50 / second).
-   */
-  private static void writeMessages() {
-    System.out.println("Hello World!");
-    System.err.println("Hello World!!");
-    LOG.error("writeMessages(): Hello World error");
-    LOG.warn("writeMessages(): Hello World warning");
-    LOG.info("writeMessages(): Hello World info");
-    LOG.debug("writeMessages(): Hello World debug");
-    LOG.trace("writeMessages(): Hello World trace");
+  
+  // This is the definition for writeMessage, which defines what writeMethod does. 
+  // As you can see, it is secretly just a different line of code in a nice wrapper.
+  // Later, you'll be writing your own.
+  private static void writeMessage(String msg) {
+    System.out.println(msg);
   }
 }
